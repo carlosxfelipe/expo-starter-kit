@@ -44,6 +44,7 @@ export default function TabLayout() {
           tabBarInactiveTintColor: colors.textSecondary,
         }}
       >
+        <Tabs.Screen name="index" options={{ href: null }} />
         <Tabs.Screen
           name="(home)"
           options={{
