@@ -1,6 +1,7 @@
-import { Link, Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { Platform, ScrollView, StyleSheet } from "react-native";
 
+import { Button } from "@/components/button";
 import { Icon } from "@/components/icon";
 import { ThemedText } from "@/components/themed-text";
 
@@ -8,6 +9,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 export default function HomeScreen() {
   const theme = useTheme();
+  const router = useRouter();
 
   return (
     <>
@@ -30,17 +32,15 @@ export default function HomeScreen() {
         contentInsetAdjustmentBehavior="automatic"
       >
         <ThemedText>Welcome to Expo</ThemedText>
-        <Link href="/details" asChild>
-          <ThemedText
-            style={{
-              marginTop: 20,
-              color: theme.primary,
-              textDecorationLine: "underline",
-            }}
-          >
-            Go to Details screen
-          </ThemedText>
-        </Link>
+        <Button
+          variant="tinted"
+          onPress={() => router.push("/details")}
+          iconRight={(color) => (
+            <Icon name="arrow-right" size={18} color={color} animated={false} />
+          )}
+        >
+          Go to Details
+        </Button>
       </ScrollView>
     </>
   );
@@ -52,5 +52,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 16,
+    gap: 12,
   },
 });
