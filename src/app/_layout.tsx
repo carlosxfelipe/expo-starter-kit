@@ -1,19 +1,19 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { Tabs } from 'expo-router';
-import { useFonts } from 'expo-font';
+import { useFonts } from "expo-font";
+import { DarkTheme, DefaultTheme, Tabs, ThemeProvider } from "expo-router";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import { Icon } from '@/components/icon';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { AnimatedSplashOverlay } from "@/components/animated-icon";
+import { Icon } from "@/components/icon";
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const scheme = colorScheme === 'unspecified' ? 'light' : colorScheme ?? 'light';
+  const scheme =
+    colorScheme === "unspecified" ? "light" : (colorScheme ?? "light");
   const colors = Colors[scheme];
 
   const [fontsLoaded] = useFonts({
-    MaterialDesignIcons: require('@react-native-vector-icons/material-design-icons/fonts/MaterialDesignIcons.ttf'),
+    MaterialDesignIcons: require("@react-native-vector-icons/material-design-icons/fonts/MaterialDesignIcons.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -21,7 +21,7 @@ export default function TabLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <AnimatedSplashOverlay />
       <Tabs
         screenOptions={{
@@ -31,19 +31,11 @@ export default function TabLayout() {
           },
           headerTintColor: colors.text,
           headerTitleStyle: {
-            fontWeight: '600',
+            fontWeight: "600",
             fontSize: 17,
           },
           headerShadowVisible: false,
-          headerRight: () => (
-            <Icon
-              name="bell-outline"
-              size={22}
-              color={colors.text}
-              style={{ marginRight: 16 }}
-              onPress={() => console.log('Header icon pressed!')}
-            />
-          ),
+          headerTitleAlign: "center",
           tabBarStyle: {
             backgroundColor: colors.background,
             borderTopColor: colors.backgroundElement,
@@ -53,12 +45,13 @@ export default function TabLayout() {
         }}
       >
         <Tabs.Screen
-          name="index"
+          name="(home)"
           options={{
-            title: 'Home',
+            headerShown: false, // Hide the global header here to use the Stack's header
+            title: "Home",
             tabBarIcon: ({ color, focused }) => (
               <Icon
-                name={focused ? 'home' : 'home-outline'}
+                name={focused ? "home" : "home-outline"}
                 size={24}
                 color={color as string}
               />
@@ -66,12 +59,13 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="explore"
+          name="(explore)"
           options={{
-            title: 'Explore',
+            headerShown: false,
+            title: "Explore",
             tabBarIcon: ({ color, focused }) => (
               <Icon
-                name={focused ? 'compass' : 'compass-outline'}
+                name={focused ? "compass" : "compass-outline"}
                 size={24}
                 color={color as string}
               />
