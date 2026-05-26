@@ -60,13 +60,13 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="(explore)"
+          name="(menu)"
           options={{
             headerShown: false,
-            title: "Explore",
+            title: "Menu",
             tabBarIcon: ({ color, focused }) => (
               <Icon
-                name={focused ? "compass" : "compass-outline"}
+                name={focused ? "menu" : "menu"}
                 size={24}
                 color={color as string}
               />

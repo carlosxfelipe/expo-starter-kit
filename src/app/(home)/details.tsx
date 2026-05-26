@@ -1,15 +1,13 @@
-import { View, StyleSheet } from "react-native";
-import { useTheme } from "@/hooks/use-theme";
 import { ThemedText } from "@/components/themed-text";
+import { useTheme } from "@/hooks/use-theme";
+import { StyleSheet, View } from "react-native";
 
 export default function DetailsScreen() {
   const theme = useTheme();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <ThemedText>
-        Look at the back arrow up there! ⬆️
-      </ThemedText>
+      <ThemedText>Look at the back arrow up there! ⬆️</ThemedText>
     </View>
   );
 }

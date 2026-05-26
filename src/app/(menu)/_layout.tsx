@@ -1,7 +1,7 @@
-import { Stack } from "expo-router";
 import { useTheme } from "@/hooks/use-theme";
+import { Stack } from "expo-router";
 
-export default function ExploreLayout() {
+export default function MenuLayout() {
   const theme = useTheme();
 
   return (
@@ -23,7 +23,7 @@ export default function ExploreLayout() {
       <Stack.Screen
         name="index"
         options={{
-          title: "Explore",
+          title: "Menu",
         }}
       />
     </Stack>

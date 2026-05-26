@@ -5,7 +5,7 @@ import { Icon } from "@/components/icon";
 import { ThemedText } from "@/components/themed-text";
 import { useTheme } from "@/hooks/use-theme";
 
-export default function ExploreScreen() {
+export default function MenuScreen() {
   const theme = useTheme();
 
   return (
@@ -28,7 +28,7 @@ export default function ExploreScreen() {
         contentContainerStyle={styles.contentContainer}
         contentInsetAdjustmentBehavior="automatic"
       >
-        <ThemedText>Explore</ThemedText>
+        <ThemedText>Menu</ThemedText>
       </ScrollView>
     </>
   );
