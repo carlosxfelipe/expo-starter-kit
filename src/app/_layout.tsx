@@ -1,14 +1,24 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 import { Tabs } from 'expo-router';
-import { Image, useColorScheme } from 'react-native';
+import { useFonts } from 'expo-font';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
+import { Icon } from '@/components/icon';
 import { Colors } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const scheme = colorScheme === 'unspecified' ? 'light' : colorScheme ?? 'light';
   const colors = Colors[scheme];
+
+  const [fontsLoaded] = useFonts({
+    MaterialDesignIcons: require('@react-native-vector-icons/material-design-icons/fonts/MaterialDesignIcons.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -25,6 +35,15 @@ export default function TabLayout() {
             fontSize: 17,
           },
           headerShadowVisible: false,
+          headerRight: () => (
+            <Icon
+              name="bell-outline"
+              size={22}
+              color={colors.text}
+              style={{ marginRight: 16 }}
+              onPress={() => console.log('Header icon pressed!')}
+            />
+          ),
           tabBarStyle: {
             backgroundColor: colors.background,
             borderTopColor: colors.backgroundElement,
@@ -38,10 +57,10 @@ export default function TabLayout() {
           options={{
             title: 'Home',
             tabBarIcon: ({ color, focused }) => (
-              <Image
-                source={require('@/assets/images/tabIcons/home.png')}
-                style={{ width: 24, height: 24, tintColor: color }}
-                resizeMode="contain"
+              <Icon
+                name={focused ? 'home' : 'home-outline'}
+                size={24}
+                color={color as string}
               />
             ),
           }}
@@ -51,10 +70,10 @@ export default function TabLayout() {
           options={{
             title: 'Explore',
             tabBarIcon: ({ color, focused }) => (
-              <Image
-                source={require('@/assets/images/tabIcons/explore.png')}
-                style={{ width: 24, height: 24, tintColor: color }}
-                resizeMode="contain"
+              <Icon
+                name={focused ? 'compass' : 'compass-outline'}
+                size={24}
+                color={color as string}
               />
             ),
           }}

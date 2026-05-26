@@ -9,18 +9,28 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    primary: "#007AFF",
+    background: "#ffffff",
+    backgroundElement: "#F0F0F3",
+    backgroundSelected: "#E0E1E6",
+    text: "#000000",
+    textSecondary: "#60646C",
+    border: "#C6C6C8",
+    notification: "#FF3B30",
+    placeholder: "#3C3C4399",
+    inputBackground: "rgba(118,118,128,0.12)",
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    primary: "#0A84FF",
+    background: "#000000",
+    backgroundElement: "#212225",
+    backgroundSelected: "#2E3135",
+    text: "#ffffff",
+    textSecondary: "#B0B4BA",
+    border: "#38383A",
+    notification: "#FF453A",
+    placeholder: "#EBEBF599",
+    inputBackground: "rgba(118,118,128,0.24)",
   },
 } as const;
 
@@ -60,5 +70,3 @@ export const Spacing = {
   five: 32,
   six: 64,
 } as const;
-
-export const MaxContentWidth = 800;
