@@ -1,10 +1,10 @@
-import { Platform, ScrollView, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Platform, ScrollView, StyleSheet } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { useTheme } from '@/hooks/use-theme';
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
+import { useTheme } from "@/hooks/use-theme";
 
 export default function TabTwoScreen() {
   const safeAreaInsets = useSafeAreaInsets();
@@ -31,13 +31,11 @@ export default function TabTwoScreen() {
     <ScrollView
       style={[styles.scrollView, { backgroundColor: theme.background }]}
       contentInset={insets}
-      contentContainerStyle={[styles.contentContainer, contentPlatformStyle]}>
+      contentContainerStyle={[styles.contentContainer, contentPlatformStyle]}
+    >
       <ThemedView style={styles.container}>
         <ThemedView style={styles.titleContainer}>
-          <ThemedText type="subtitle">Explore</ThemedText>
-          <ThemedText style={styles.centerText} themeColor="textSecondary">
-            This starter app includes example{'\n'}code to help you get started.
-          </ThemedText>
+          <ThemedText>Explore</ThemedText>
         </ThemedView>
       </ThemedView>
     </ScrollView>
@@ -49,8 +47,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
   container: {
     maxWidth: MaxContentWidth,
@@ -58,11 +56,8 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     gap: Spacing.three,
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: Spacing.four,
     paddingVertical: Spacing.six,
-  },
-  centerText: {
-    textAlign: 'center',
   },
 });

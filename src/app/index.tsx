@@ -10,9 +10,7 @@ export default function HomeScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
+          <ThemedText style={styles.title}>Welcome to&nbsp;Expo</ThemedText>
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
@@ -44,4 +42,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
