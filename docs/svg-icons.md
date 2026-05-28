@@ -9,40 +9,39 @@ A partir do SDK 56, `@expo/vector-icons` foi **depreciado** e não é mais inclu
 Instale apenas as famílias que for usar:
 
 ```bash
-# Material Community Icons (mais completo, recomendado)
-npm install @react-native-vector-icons/material-community-icons
-
-# Material Design Icons
-npm install @react-native-vector-icons/material-design-icons
+# Material Design Icons (mais completo, recomendado - 7000+ ícones)
+npx expo install @react-native-vector-icons/material-design-icons
 
 # Ionicons
-npm install @react-native-vector-icons/ionicons
+npx expo install @react-native-vector-icons/ionicons
 
 # FontAwesome 6
-npm install @react-native-vector-icons/fontawesome6
+npx expo install @react-native-vector-icons/fontawesome6
 
 # Feather
-npm install @react-native-vector-icons/feather
+npx expo install @react-native-vector-icons/feather
 
 # Ant Design Icons
-npm install @react-native-vector-icons/ant-design
+npx expo install @react-native-vector-icons/ant-design
 
 # Instalar vários de uma vez
-npm install \
-  @react-native-vector-icons/material-community-icons \
+npx expo install \
+  @react-native-vector-icons/material-design-icons \
   @react-native-vector-icons/ionicons \
   @react-native-vector-icons/feather
 ```
 
 ## Uso
 
+As importações na nova biblioteca utilizam exports nomeados (Named Exports):
+
 ```tsx
-import MaterialCommunityIcons from '@react-native-vector-icons/material-community-icons';
-import Ionicons from '@react-native-vector-icons/ionicons';
-import Feather from '@react-native-vector-icons/feather';
+import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
+import { Ionicons } from '@react-native-vector-icons/ionicons';
+import { Feather } from '@react-native-vector-icons/feather';
 
 // Em um componente
-<MaterialCommunityIcons name="home" size={24} color="#000" />
+<MaterialDesignIcons name="home" size={24} color="#000" />
 <Ionicons name="settings-outline" size={24} color="#000" />
 <Feather name="search" size={24} color="#000" />
 ```
@@ -50,14 +49,14 @@ import Feather from '@react-native-vector-icons/feather';
 ## Uso nos Tabs (Expo Router)
 
 ```tsx
-import MaterialCommunityIcons from '@react-native-vector-icons/material-community-icons';
+import { MaterialDesignIcons } from '@react-native-vector-icons/material-design-icons';
 
 <Tabs.Screen
   name="index"
   options={{
     title: 'Home',
     tabBarIcon: ({ color, size }) => (
-      <MaterialCommunityIcons name="home-outline" size={size} color={color} />
+      <MaterialDesignIcons name="home-outline" size={size} color={color} />
     ),
   }}
 />
@@ -65,7 +64,7 @@ import MaterialCommunityIcons from '@react-native-vector-icons/material-communit
 
 ## Explorar ícones disponíveis
 
-- **Material Community Icons**: https://pictogrammers.com/library/mdi/
+- **Material Design Icons**: https://pictogrammers.com/library/mdi/
 - **Ionicons**: https://ionic.io/ionicons
 - **Feather**: https://feathericons.com
 - **FontAwesome 6**: https://fontawesome.com/icons
@@ -81,3 +80,4 @@ npx @react-native-vector-icons/codemod
 ```
 
 O codemod atualiza imports e `package.json` automaticamente.
+
