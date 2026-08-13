@@ -50,7 +50,7 @@ Adicione os seguintes scripts ao `package.json` do seu novo projeto:
   "ios:go": "expo start --ios",
   "web": "expo start --web",
   "lint": "expo lint",
-  "format": "npx prettier@latest --write \"packages/**/*.{ts,tsx,js,jsx,json,md}\" && npx prettier@latest --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+  "format": "npx prettier@latest --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
   "build:android": "npx expo prebuild --platform android && cd android && ./gradlew assembleRelease && cd .. && mkdir -p apk && cp android/app/build/outputs/apk/release/app-release.apk \"apk/$npm_package_name-v$npm_package_version.apk\""
 }
 ```
