@@ -36,6 +36,22 @@ Caso **já tenha adicionado os scripts recomendados** (veja a seção abaixo), v
 - **No Expo Go** (sem build nativa): `npm run android:go` ou `npm run ios:go`
 - **Build nativa** (compilação completa): `npm run android` ou `npm run ios`
 
+## Customização da Tab Bar (iOS)
+
+Este template inclui por padrão uma tab bar nativa com efeito translúcido (liquid glass) exclusiva para o iOS.
+Caso você não queira utilizar esse efeito nativo e prefira o fallback tradicional do Expo Router (o mesmo que roda no Android), basta abrir o arquivo `src/app/_layout.tsx` e apagar o seguinte bloco de código:
+
+```tsx
+  if (Platform.OS === "ios") {
+    return (
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <AnimatedSplashOverlay />
+        <IosNativeTabs colors={colors} />
+      </ThemeProvider>
+    );
+  }
+```
+
 ## Scripts recomendados
 
 Adicione os seguintes scripts ao `package.json` do seu novo projeto:

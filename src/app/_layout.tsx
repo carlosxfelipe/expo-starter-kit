@@ -1,8 +1,10 @@
 import { useFonts } from "expo-font";
 import { DarkTheme, DefaultTheme, Tabs, ThemeProvider } from "expo-router";
+import { Platform } from "react-native";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 import { Icon } from "@/components/icon";
+import { IosNativeTabs } from "@/components/ios-native-tabs";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 
@@ -18,6 +20,15 @@ export default function TabLayout() {
 
   if (!fontsLoaded) {
     return null;
+  }
+
+  if (Platform.OS === "ios") {
+    return (
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <AnimatedSplashOverlay />
+        <IosNativeTabs colors={colors} />
+      </ThemeProvider>
+    );
   }
 
   return (
