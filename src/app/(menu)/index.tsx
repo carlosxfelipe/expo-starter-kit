@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { Platform, ScrollView, StyleSheet } from "react-native";
 
 import { Icon } from "@/components/icon";
-import { ThemedText } from "@/components/themed-text";
+import { Text } from "@/components/text";
 import { useTheme } from "@/hooks/use-theme";
 
 export default function MenuScreen() {
@@ -28,7 +28,7 @@ export default function MenuScreen() {
         contentContainerStyle={styles.contentContainer}
         contentInsetAdjustmentBehavior="automatic"
       >
-        <ThemedText>Menu</ThemedText>
+        <Text>Menu</Text>
       </ScrollView>
     </>
   );

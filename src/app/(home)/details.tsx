@@ -1,4 +1,4 @@
-import { ThemedText } from "@/components/themed-text";
+import { Text } from "@/components/text";
 import { useResponsive } from "@/hooks/use-responsive";
 import { useTheme } from "@/hooks/use-theme";
 import { Stack } from "expo-router";
@@ -12,7 +12,7 @@ export default function DetailsScreen() {
     <>
       <Stack.Screen options={{ headerShown: !isDesktop }} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <ThemedText>Look at the back arrow up there! ⬆️</ThemedText>
+        <Text>Look at the back arrow up there! ⬆️</Text>
       </View>
     </>
   );

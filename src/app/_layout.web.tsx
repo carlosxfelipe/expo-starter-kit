@@ -11,7 +11,7 @@ import { Pressable, StyleSheet, useWindowDimensions, View } from "react-native";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 import { Icon } from "@/components/icon";
-import { ThemedText } from "@/components/themed-text";
+import { Text } from "@/components/text";
 import { Colors } from "@/constants/theme";
 import { BREAKPOINT } from "@/constants/layout";
 import { useColorScheme } from "@/hooks/use-color-scheme";
@@ -85,7 +85,7 @@ export default function WebLayout() {
                     size={24}
                     color={isActive ? colors.text : colors.textSecondary}
                   />
-                  <ThemedText
+                  <Text
                     style={[
                       styles.bottomNavLabel,
                       {
@@ -94,7 +94,7 @@ export default function WebLayout() {
                     ]}
                   >
                     {item.name}
-                  </ThemedText>
+                  </Text>
                 </Pressable>
               );
             })}
@@ -121,7 +121,7 @@ export default function WebLayout() {
           ]}
         >
           <View style={styles.logoContainer}>
-            <ThemedText style={styles.logoText}>Expo Starter</ThemedText>
+            <Text style={styles.logoText}>Expo Starter</Text>
           </View>
           <View style={styles.navLinks}>
             {navItems.map((item) => {
@@ -158,7 +158,7 @@ export default function WebLayout() {
                             : colors.textSecondary
                         }
                       />
-                      <ThemedText
+                      <Text
                         style={[
                           styles.navText,
                           {
@@ -170,7 +170,7 @@ export default function WebLayout() {
                         ]}
                       >
                         {item.name}
-                      </ThemedText>
+                      </Text>
                     </>
                   )}
                 </Pressable>

@@ -1,9 +1,14 @@
-import { Platform, StyleSheet, Text, type TextProps } from "react-native";
+import {
+  Platform,
+  StyleSheet,
+  Text as RNText,
+  type TextProps as RNTextProps,
+} from "react-native";
 
 import { Fonts, ThemeColor } from "@/constants/theme";
 import { useTheme } from "@/hooks/use-theme";
 
-export type ThemedTextProps = TextProps & {
+export type TextProps = RNTextProps & {
   type?:
     | "default"
     | "title"
@@ -16,16 +21,16 @@ export type ThemedTextProps = TextProps & {
   themeColor?: ThemeColor;
 };
 
-export function ThemedText({
+export function Text({
   style,
   type = "default",
   themeColor,
   ...rest
-}: ThemedTextProps) {
+}: TextProps) {
   const theme = useTheme();
 
   return (
-    <Text
+    <RNText
       style={[
         { color: theme[themeColor ?? "text"] },
         type === "default" && styles.default,

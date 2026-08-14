@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import { ThemedText } from "@/components/themed-text";
+import { Text } from "@/components/text";
 import { useTheme } from "@/hooks/use-theme";
 
 function getOpacity({
@@ -114,12 +114,12 @@ export function Button({
       ) : (
         iconLeft && <View style={styles.icon}>{iconLeft(labelColor)}</View>
       )}
-      <ThemedText
+      <Text
         style={[styles.label, { color: labelColor, fontSize }]}
         numberOfLines={1}
       >
         {children}
-      </ThemedText>
+      </Text>
       {!loading && iconRight && (
         <View style={styles.icon}>{iconRight(labelColor)}</View>
       )}

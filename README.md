@@ -73,5 +73,5 @@ Adicione os seguintes scripts ao `package.json` do seu novo projeto:
 
 - **`android` / `ios`** — compila e roda o app nativamente (`expo run`).
 - **`android:go` / `ios:go`** — inicia o servidor Expo apontando para a plataforma, sem recompilar.
-- **`format`** — formata os arquivos do projeto (`packages/` e `src/`) usando o Prettier.
+- **`format`** — formata os arquivos do projeto (na pasta `src/`) usando o Prettier.
 - **`build:android`** — gera o APK de release e o copia para a pasta `apk/` com nome e versão do `package.json`.

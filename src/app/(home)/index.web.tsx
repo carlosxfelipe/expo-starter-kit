@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from "react-native";
 
 import { Button } from "@/components/button";
 import { Icon } from "@/components/icon";
-import { ThemedText } from "@/components/themed-text";
+import { Text } from "@/components/text";
 
 import { useResponsive } from "@/hooks/use-responsive";
 import { useTheme } from "@/hooks/use-theme";
@@ -34,7 +34,7 @@ export default function HomeScreen() {
         contentContainerStyle={styles.contentContainer}
         contentInsetAdjustmentBehavior="automatic"
       >
-        <ThemedText>Welcome to Expo</ThemedText>
+        <Text>Welcome to Expo</Text>
         <Button
           variant="tinted"
           onPress={() => router.push("/details")}
