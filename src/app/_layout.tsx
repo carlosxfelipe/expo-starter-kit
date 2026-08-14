@@ -4,7 +4,7 @@ import { Platform } from "react-native";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 import { Icon } from "@/components/icon";
-import { IosNativeTabs } from "@/components/ios-native-tabs";
+import { IosNativeTabs } from "@/layouts/ios-native-tabs";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 
