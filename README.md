@@ -52,6 +52,18 @@ Caso você não queira utilizar esse efeito nativo e prefira o fallback tradicio
   }
 ```
 
+## Barra de Pesquisa Nativa
+
+A tela principal (Home) vem configurada com uma barra de pesquisa nativa (suportada tanto no iOS quanto no Android). Caso você não queira utilizar esse recurso, basta abrir o arquivo `src/app/(home)/index.tsx` e apagar o seguinte trecho de código dentro das opções do `Stack.Screen`:
+
+```tsx
+headerSearchBarOptions: {
+  placeholder: "Pesquisar...",
+  hideWhenScrolling: false, // Forces the search bar to always be visible
+  onChangeText: (event) => console.log(event.nativeEvent.text),
+},
+```
+
 ## Scripts recomendados
 
 Adicione os seguintes scripts ao `package.json` do seu novo projeto:

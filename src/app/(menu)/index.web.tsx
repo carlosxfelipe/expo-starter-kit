@@ -17,10 +17,10 @@ export default function MenuScreen() {
           headerShown: !isDesktop,
           headerRight: () => (
             <Icon
-              name="magnify"
+              name="cog"
               size={22}
               color={theme.text}
-              onPress={() => console.log("Search pressed!")}
+              onPress={() => console.log("Settings pressed!")}
               style={{ marginRight: 16 }}
             />
           ),

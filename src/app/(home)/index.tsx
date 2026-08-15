@@ -15,6 +15,11 @@ export default function HomeScreen() {
     <>
       <Stack.Screen
         options={{
+          headerSearchBarOptions: {
+            placeholder: "Pesquisar...",
+            hideWhenScrolling: false, // Forces the search bar to always be visible
+            onChangeText: (event) => console.log(event.nativeEvent.text),
+          },
           headerRight: () => (
             <Icon
               name="bell-outline"

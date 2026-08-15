@@ -14,10 +14,10 @@ export default function MenuScreen() {
         options={{
           headerRight: () => (
             <Icon
-              name="magnify"
+              name="cog"
               size={22}
               color={theme.text}
-              onPress={() => console.log("Search pressed!")}
+              onPress={() => console.log("Settings pressed!")}
               style={Platform.OS === "web" ? { marginRight: 16 } : undefined}
             />
           ),
