@@ -17,7 +17,7 @@ export default function HomeScreen() {
         options={{
           headerSearchBarOptions: {
             placeholder: "Pesquisar...",
-            hideWhenScrolling: false, // Forces the search bar to always be visible
+            hideWhenScrolling: true,
             onChangeText: (event) => console.log(event.nativeEvent.text),
           },
           headerRight: () => (

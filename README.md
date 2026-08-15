@@ -59,7 +59,7 @@ A tela principal (Home) vem configurada com uma barra de pesquisa nativa (suport
 ```tsx
 headerSearchBarOptions: {
   placeholder: "Pesquisar...",
-  hideWhenScrolling: false, // Forces the search bar to always be visible
+  hideWhenScrolling: true,
   onChangeText: (event) => console.log(event.nativeEvent.text),
 },
 ```
