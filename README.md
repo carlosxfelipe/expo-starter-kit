@@ -21,6 +21,11 @@ Este projeto é um template de inicialização (starter kit) configurado para de
    - Apague a pasta `src` que foi gerada por padrão no seu novo projeto.
    - Copie a pasta `src` deste template (`expo-starter-kit`) e cole-a na raiz do seu novo projeto.
 
+   **Dica:** Para fazer isso automaticamente via terminal sem precisar baixar manualmente, você pode rodar o seguinte comando na raiz do seu novo projeto:
+   ```bash
+   rm -rf src && npx --yes degit carlosxfelipe/expo-starter-kit/src src --force
+   ```
+
 ## Como rodar o projeto
 
 Se você acabou de criar o projeto e ainda não adicionou os scripts recomendados, utilize os comandos padrão:
