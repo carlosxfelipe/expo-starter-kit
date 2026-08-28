@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
+    "prettier": "^3.9.6",
     "typescript": "~6.0.3"
   },
   "scripts": {
@@ -41,7 +42,7 @@
     "ios:go": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "format": "npx prettier@latest --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
     "build:android": "npx expo prebuild --platform android && cd android && ./gradlew assembleRelease && cd .. && mkdir -p apk && cp android/app/build/outputs/apk/release/app-release.apk \"apk/$npm_package_name-v$npm_package_version.apk\""
   },
   "private": true

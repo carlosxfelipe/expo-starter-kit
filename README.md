@@ -83,7 +83,7 @@ Adicione os seguintes scripts ao `package.json` do seu novo projeto:
   "ios:go": "expo start --ios",
   "web": "expo start --web",
   "lint": "expo lint",
-  "format": "npx prettier@latest --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+  "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
   "build:android": "npx expo prebuild --platform android && cd android && ./gradlew assembleRelease && cd .. && mkdir -p apk && cp android/app/build/outputs/apk/release/app-release.apk \"apk/$npm_package_name-v$npm_package_version.apk\""
 }
 ```
@@ -92,3 +92,8 @@ Adicione os seguintes scripts ao `package.json` do seu novo projeto:
 - **`android:go` / `ios:go`** — inicia o servidor Expo apontando para a plataforma, sem recompilar.
 - **`format`** — formata os arquivos do projeto (na pasta `src/`) usando o Prettier.
 - **`build:android`** — gera o APK de release e o copia para a pasta `apk/` com nome e versão do `package.json`.
+
+> **Nota sobre a formatação:** Se utilizar o script de formatação, será necessário instalar o Prettier no seu projeto como dependência de desenvolvimento:
+> ```bash
+> npm install -D prettier
+> ```
