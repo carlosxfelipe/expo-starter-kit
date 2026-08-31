@@ -28,18 +28,13 @@ Este projeto é um template de inicialização (starter kit) configurado para de
 
 ## Como rodar o projeto
 
-Se você acabou de criar o projeto e ainda não adicionou os scripts recomendados, utilize os comandos padrão:
+Para iniciar o projeto, utilize:
 
 ```bash
 npm run android
 npm run ios
 npm run web
 ```
-
-Caso **já tenha adicionado os scripts recomendados** (veja a seção abaixo), você pode usar:
-
-- **No Expo Go** (sem build nativa): `npm run android:go` ou `npm run ios:go`
-- **Build nativa** (compilação completa): `npm run android` ou `npm run ios`
 
 ## Customização da Tab Bar (iOS)
 
@@ -112,10 +107,10 @@ Adicione os seguintes scripts ao `package.json` do seu novo projeto:
 "scripts": {
   "start": "expo start",
   "reset-project": "node ./scripts/reset-project.js",
-  "android": "expo run:android",
-  "android:go": "expo start --android",
-  "ios": "expo run:ios",
-  "ios:go": "expo start --ios",
+  "android": "expo start --android",
+  "android:native": "expo run:android",
+  "ios": "expo start --ios",
+  "ios:native": "expo run:ios",
   "web": "expo start --web",
   "lint": "expo lint",
   "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
@@ -123,8 +118,8 @@ Adicione os seguintes scripts ao `package.json` do seu novo projeto:
 }
 ```
 
-- **`android` / `ios`** — compila e roda o app nativamente (`expo run`).
-- **`android:go` / `ios:go`** — inicia o servidor Expo apontando para a plataforma, sem recompilar.
+- **`android` / `ios`** — inicia o servidor Expo apontando para a plataforma, sem recompilar (ideal para Expo Go).
+- **`android:native` / `ios:native`** — compila e roda o app nativamente (`expo run`).
 - **`format`** — formata os arquivos do projeto (na pasta `src/`) usando o Prettier.
 - **`build:android`** — gera o APK de release e o copia para a pasta `apk/` com nome e versão do `package.json`.
 
