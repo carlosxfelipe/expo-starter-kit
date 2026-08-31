@@ -69,6 +69,41 @@ headerSearchBarOptions: {
 },
 ```
 
+## Hero Header
+
+O projeto inclui como alternativa o padrão de layout "Hero", que consiste em um cabeçalho proeminente integrado com a rolagem da tela. Ele esconde o header nativo e possui um truque visual com a barra de status, que alterna dinamicamente entre cores escuras e claras ao rolar a página.
+
+Os componentes estão disponíveis em `src/components/home/hero-header.tsx` e `src/components/home/hero-scroll-view.tsx`.
+
+Veja abaixo um exemplo de como implementar esse padrão na sua Home:
+
+```tsx
+import { Stack } from "expo-router";
+import { View } from "react-native";
+
+import { HeroHeader } from "@/components/home/hero-header";
+import { HeroScrollView } from "@/components/home/hero-scroll-view";
+import { Text } from "@/components/text";
+
+export default function HomeScreen() {
+  return (
+    <>
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+      />
+      <HeroScrollView>
+        <HeroHeader />
+        <View style={{ padding: 16, gap: 12 }}>
+          <Text>Welcome to Expo</Text>
+        </View>
+      </HeroScrollView>
+    </>
+  );
+}
+```
+
 ## Scripts recomendados
 
 Adicione os seguintes scripts ao `package.json` do seu novo projeto:
