@@ -52,12 +52,24 @@ export const TestIDs = {
 
 /**
  * Helper to produce standard testID and accessibility props.
- * Setting collapsable: false prevents Android from optimizing out/flattening views.
  */
 export function testProps(id: string, accessibilityLabel?: string) {
   return {
     testID: id,
     accessibilityLabel: accessibilityLabel ?? id,
     accessible: true,
+  };
+}
+
+/**
+ * Helper specifically for Views to prevent Android view flattening.
+ * Setting collapsable: false prevents Android from optimizing out/flattening views.
+ */
+export function viewTestProps(id: string, accessibilityLabel?: string) {
+  return {
+    testID: id,
+    accessibilityLabel: accessibilityLabel ?? id,
+    accessible: true,
+    collapsable: false,
   };
 }
