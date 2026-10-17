@@ -37,6 +37,8 @@ type ButtonProps = Omit<PressableProps, "children"> & {
   children: string | string[];
   iconLeft?: (color: string) => React.ReactNode;
   iconRight?: (color: string) => React.ReactNode;
+  testID?: string;
+  accessibilityLabel?: string;
 };
 
 const sizeStyles: Record<
@@ -59,6 +61,8 @@ export function Button({
   iconRight,
   style,
   disabled,
+  testID,
+  accessibilityLabel,
   ...rest
 }: ButtonProps) {
   const theme = useTheme();
@@ -83,14 +87,21 @@ export function Button({
 
   const { paddingVertical, paddingHorizontal, fontSize } = sizeStyles[size];
 
+  const resolvedAccessibilityLabel =
+    accessibilityLabel ?? (typeof children === "string" ? children : undefined);
+
   return (
     <Pressable
+      testID={testID}
+      collapsable={false}
+      accessibilityRole="button"
+      accessibilityLabel={resolvedAccessibilityLabel}
       disabled={isDisabled}
       style={(state) => {
         const opacity = getOpacity({
           disabled: isDisabled,
           pressed: state.pressed,
-          hovered: Platform.OS === "web" && state.hovered,
+          hovered: Platform.OS === "web" && (state as any).hovered,
         });
         return [
           styles.base,

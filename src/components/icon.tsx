@@ -1,9 +1,15 @@
-import React from "react";
-import { StyleProp, ViewStyle, Pressable, StyleSheet } from "react-native";
 import { MaterialDesignIcons } from "@react-native-vector-icons/material-design-icons";
+import React from "react";
+import {
+  type AccessibilityRole,
+  type StyleProp,
+  type ViewStyle,
+  Pressable,
+  StyleSheet,
+} from "react-native";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
+  useSharedValue,
   withSpring,
 } from "react-native-reanimated";
 
@@ -37,13 +43,25 @@ export interface IconProps {
    * Enables subtle micro-animations (scale bounce on tap/hover). Defaults to true.
    */
   animated?: boolean;
+  /**
+   * Unique test identifier for automated E2E tests (Maestro).
+   */
+  testID?: string;
+  /**
+   * Accessibility label for screen readers and Maestro selectors.
+   */
+  accessibilityLabel?: string;
+  /**
+   * Accessibility role. Defaults to 'button' when onPress is provided.
+   */
+  accessibilityRole?: AccessibilityRole;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 /**
  * A premium, state-of-the-art Icon component utilizing modular `@react-native-vector-icons`.
- * Automatically supports responsive scaling, interactive spring-based micro-animations,
+ * Automatically supports responsive scaling, interactive spring-based micro-interactions,
  * and high-performance cross-platform rendering (iOS, Android, and Web).
  */
 export function Icon({
@@ -53,6 +71,9 @@ export function Icon({
   style,
   onPress,
   animated = true,
+  testID,
+  accessibilityLabel,
+  accessibilityRole,
 }: IconProps) {
   const scale = useSharedValue(1);
 
@@ -79,6 +100,10 @@ export function Icon({
   if (onPress) {
     return (
       <AnimatedPressable
+        testID={testID}
+        collapsable={false}
+        accessibilityRole={accessibilityRole ?? "button"}
+        accessibilityLabel={accessibilityLabel}
         onPress={onPress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
@@ -90,7 +115,13 @@ export function Icon({
   }
 
   return (
-    <Animated.View style={[styles.container, animatedStyle, style]}>
+    <Animated.View
+      testID={testID}
+      collapsable={false}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityRole={accessibilityRole}
+      style={[styles.container, animatedStyle, style]}
+    >
       {content}
     </Animated.View>
   );

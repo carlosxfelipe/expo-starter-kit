@@ -4,9 +4,10 @@ import { Platform } from "react-native";
 
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 import { Icon } from "@/components/icon";
-import { IosNativeTabs } from "@/layouts/ios-native-tabs";
+import { TestIDs } from "@/constants/test-ids";
 import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { IosNativeTabs } from "@/layouts/ios-native-tabs";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -61,6 +62,8 @@ export default function TabLayout() {
           options={{
             headerShown: false, // Hide the global header here to use the Stack's header
             title: "Home",
+            tabBarAccessibilityLabel: "Home",
+            tabBarButtonTestID: TestIDs.tabs.home,
             tabBarIcon: ({ color, focused }) => (
               <Icon
                 name={focused ? "home" : "home-outline"}
@@ -75,6 +78,8 @@ export default function TabLayout() {
           options={{
             headerShown: false,
             title: "Menu",
+            tabBarAccessibilityLabel: "Menu",
+            tabBarButtonTestID: TestIDs.tabs.menu,
             tabBarIcon: ({ color, focused }) => (
               <Icon
                 name={focused ? "menu" : "menu"}

@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet } from "react-native";
 
 import { Icon } from "@/components/icon";
 import { Text } from "@/components/text";
+import { TestIDs } from "@/constants/test-ids";
 import { useResponsive } from "@/hooks/use-responsive";
 import { useTheme } from "@/hooks/use-theme";
 
@@ -20,6 +21,8 @@ export default function MenuScreen() {
               name="cog"
               size={22}
               color={theme.text}
+              testID={TestIDs.menu.headerSettings}
+              accessibilityLabel="Configurações"
               onPress={() => console.log("Settings pressed!")}
               style={{ marginRight: 16 }}
             />
@@ -27,11 +30,12 @@ export default function MenuScreen() {
         }}
       />
       <ScrollView
+        testID={TestIDs.menu.scroll}
         style={[styles.scrollView, { backgroundColor: theme.background }]}
         contentContainerStyle={styles.contentContainer}
         contentInsetAdjustmentBehavior="automatic"
       >
-        <Text>Menu</Text>
+        <Text testID={TestIDs.menu.title}>Menu</Text>
       </ScrollView>
     </>
   );

@@ -5,15 +5,21 @@ import { useTheme } from "@/hooks/use-theme";
 
 interface HeroHeaderProps {
   children?: React.ReactNode;
+  testID?: string;
 }
 
-export function HeroHeader({ children }: HeroHeaderProps) {
+export function HeroHeader({
+  children,
+  testID = "hero_header",
+}: HeroHeaderProps) {
   const theme = useTheme();
 
   return (
     <>
       <View style={[styles.overscroll, { backgroundColor: theme.primary }]} />
       <View
+        testID={testID}
+        collapsable={false}
         style={[
           styles.hero,
           { paddingTop: 10, backgroundColor: theme.primary },
@@ -21,14 +27,23 @@ export function HeroHeader({ children }: HeroHeaderProps) {
       >
         <View style={styles.topBar}>
           <View style={styles.userInfo}>
-            <Icon name="account-circle" size={40} color="#fff" />
-            <Text style={styles.name}>Hello, John Doe</Text>
+            <Icon
+              name="account-circle"
+              size={40}
+              color="#fff"
+              testID="icon_user_profile"
+            />
+            <Text testID="txt_user_name" style={styles.name}>
+              Hello, John Doe
+            </Text>
           </View>
           <View style={styles.bellContainer}>
             <Icon
               name="bell-outline"
               size={24}
               color="#fff"
+              testID="btn_notifications"
+              accessibilityLabel="Notificações"
               onPress={() => console.log("Bell pressed!")}
             />
           </View>

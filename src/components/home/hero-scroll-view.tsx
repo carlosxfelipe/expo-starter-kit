@@ -17,6 +17,7 @@ export function HeroScrollView({
   style,
   contentContainerStyle,
   contentInsetAdjustmentBehavior = "automatic",
+  testID = "scroll_hero",
   ...props
 }: HeroScrollViewProps) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,6 +37,7 @@ export function HeroScrollView({
         <StatusBar style={isScrolled ? "dark" : "light"} animated />
       )}
       <ScrollView
+        testID={testID}
         style={[
           styles.scrollView,
           { backgroundColor: theme.background },

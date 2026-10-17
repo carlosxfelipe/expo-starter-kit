@@ -1,4 +1,5 @@
 import { Text } from "@/components/text";
+import { TestIDs } from "@/constants/test-ids";
 import { useResponsive } from "@/hooks/use-responsive";
 import { useTheme } from "@/hooks/use-theme";
 import { Stack } from "expo-router";
@@ -11,8 +12,14 @@ export default function DetailsScreen() {
   return (
     <>
       <Stack.Screen options={{ headerShown: !isDesktop }} />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text>Look at the back arrow up there! ⬆️</Text>
+      <View
+        testID={TestIDs.details.screen}
+        collapsable={false}
+        style={[styles.container, { backgroundColor: theme.background }]}
+      >
+        <Text testID={TestIDs.details.message}>
+          Look at the back arrow up there! ⬆️
+        </Text>
       </View>
     </>
   );

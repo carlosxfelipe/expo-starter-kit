@@ -12,8 +12,9 @@ import { Pressable, StyleSheet, useWindowDimensions, View } from "react-native";
 import { AnimatedSplashOverlay } from "@/components/animated-icon";
 import { Icon } from "@/components/icon";
 import { Text } from "@/components/text";
-import { Colors } from "@/constants/theme";
 import { BREAKPOINT } from "@/constants/layout";
+import { TestIDs } from "@/constants/test-ids";
+import { Colors } from "@/constants/theme";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 
 export default function WebLayout() {
@@ -31,8 +32,15 @@ export default function WebLayout() {
       path: "/(home)",
       activeIcon: "home",
       inactiveIcon: "home-outline",
+      testID: TestIDs.tabs.home,
     },
-    { name: "Menu", path: "/(menu)", activeIcon: "menu", inactiveIcon: "menu" },
+    {
+      name: "Menu",
+      path: "/(menu)",
+      activeIcon: "menu",
+      inactiveIcon: "menu",
+      testID: TestIDs.tabs.menu,
+    },
   ] as const;
 
   const [fontsLoaded] = useFonts({
@@ -74,6 +82,9 @@ export default function WebLayout() {
               return (
                 <Pressable
                   key={item.path}
+                  testID={item.testID}
+                  accessibilityRole="button"
+                  accessibilityLabel={item.name}
                   onPress={() => router.push(item.path)}
                   style={({ pressed }) => [
                     styles.bottomNavItem,
@@ -105,7 +116,6 @@ export default function WebLayout() {
   }
 
   // Scenario 2: Large screens (Desktop/Tablet) -> Top Navbar
-
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <AnimatedSplashOverlay />
@@ -132,28 +142,31 @@ export default function WebLayout() {
               return (
                 <Pressable
                   key={item.path}
+                  testID={`nav_${item.name.toLowerCase()}`}
+                  accessibilityRole="button"
+                  accessibilityLabel={item.name}
                   onPress={() => router.push(item.path)}
-                  style={({ hovered }) => [
+                  style={(state: any) => [
                     styles.navItem,
                     isActive && { borderBottomColor: colors.text },
                     !isActive &&
-                      hovered && { borderBottomColor: colors.border },
-                    hovered && {
+                      state.hovered && { borderBottomColor: colors.border },
+                    state.hovered && {
                       backgroundColor: colors.backgroundElement + "40",
                     },
                   ]}
                 >
-                  {({ hovered }) => (
+                  {(state: any) => (
                     <>
                       <Icon
                         name={
-                          isActive || hovered
+                          isActive || state.hovered
                             ? item.activeIcon
                             : item.inactiveIcon
                         }
                         size={20}
                         color={
-                          isActive || hovered
+                          isActive || state.hovered
                             ? colors.text
                             : colors.textSecondary
                         }
@@ -163,7 +176,7 @@ export default function WebLayout() {
                           styles.navText,
                           {
                             color:
-                              isActive || hovered
+                              isActive || state.hovered
                                 ? colors.text
                                 : colors.textSecondary,
                           },
